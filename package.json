@@ -1,0 +1,32 @@
+{
+  "name": "the-attack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@types/easeljs": "^1.0.0",
+    "@types/soundjs": "^0.6.28",
+    "@types/tweenjs": "^1.0.1",
+    "createjs": "^1.0.1",
+    "easeljs": "^1.0.2",
+    "lite-server": "^2.5.4",
+    "preloadjs": "^1.0.1",
+    "soundjs": "^1.0.1",
+    "tweenjs": "^1.0.2",
+    "typescript": "^3.9.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wintse/The_Attack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wintse/The_Attack/issues"
+  },
+  "homepage": "https://github.com/Wintse/The_Attack#readme"
+}
