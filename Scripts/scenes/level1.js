@@ -26,7 +26,7 @@ var scenes;
             // Inintialize our variables         
             this.background = new objects.Background(this.assetManager);
             this.player = new objects.Player(this.assetManager);
-            this.enemy = new objects.Enemy(this.assetManager);
+            //this.enemy = new objects.Enemy(this.assetManager);
             this.enemies = new Array();
             this.enemyNum = 5;
             for (var i = 0; i < this.enemyNum; i++) {
