@@ -25,8 +25,6 @@ var scenes;
             console.log("Play scene start");
             // Inintialize our variables
             this.playLabel = new objects.Label("Game Playing", "40px", "Consolas", "#000000", 320, 240, true);
-            this.nextButton = new objects.Button(this.assetManager, "nextButton", 500, 340);
-            this.backButton = new objects.Button(this.assetManager, "backButton", 100, 340);
             this.background = new objects.Background(this.assetManager);
             this.player = new objects.Player(this.assetManager);
             this.Main();
@@ -39,11 +37,6 @@ var scenes;
             this.addChild(this.background);
             this.addChild(this.playLabel);
             this.addChild(this.player);
-            this.addChild(this.nextButton);
-            this.addChild(this.backButton);
-            // Register for click events
-            this.nextButton.on("click", this.nextButtonClick);
-            this.backButton.on("click", this.backButtonClick);
         };
         Level2Scene.prototype.nextButtonClick = function () {
             objects.Game.currentScene = config.Scene.GAMEOVER;

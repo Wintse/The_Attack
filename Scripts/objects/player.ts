@@ -22,9 +22,12 @@ module objects {
         public Move():void {
             // I need a reference to the "STAGE" createjs object to get mouse position
             this.x = objects.Game.stage.mouseX;
+            this.y = objects.Game.stage.mouseY;
             // This will eventually be replaced with keyboard input
-            // Maybe xbox controller....maybe...
+            
         }
-        public CheckBound():void {}
+        public CheckBound():void {
+            this.x = objects.Game.stage.mouseX;
+        }
     }
 }

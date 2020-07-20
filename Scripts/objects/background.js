@@ -19,7 +19,7 @@ var objects;
         function Background(assetManager) {
             var _this = _super.call(this, assetManager.getResult("background")) || this;
             // Variables
-            _this.speedY = 0.5;
+            _this.speedY = 2;
             console.log("Creating the background");
             _this.Start();
             return _this;

@@ -15,10 +15,10 @@ module scenes {
             // Initialize our objects for this scene
             this.background = new objects.Background(this.assetManager);
 
-            this.welcomeLabel = new objects.Label("Welcome to School!", "60px", "Consolas", "#FFFFFF", 320, 240, true);
+            this.welcomeLabel = new objects.Label("The Attack", "60px", "Consolas", "#FFFFFF", 320, 240, true);
 
             // NOTE: PreloadJS manifest id
-            this.startButton = new objects.Button(this.assetManager, "nextButton", 320, 300);
+            this.startButton = new objects.Button(this.assetManager, "startButton", 250, 500);
             this.Main();
         }
 
@@ -29,8 +29,13 @@ module scenes {
         public Main():void {
             // Add items to the scene
             this.addChild(this.background);
+            this.background.scaleX = 700;
+            this.background.scaleY = 900;
+
             this.addChild(this.welcomeLabel);
             this.addChild(this.startButton);
+            
+
             this.startButton.on("click", this.startButtonClick);
         }
 

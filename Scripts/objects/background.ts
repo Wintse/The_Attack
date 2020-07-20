@@ -1,7 +1,7 @@
 module objects {
     export class Background extends createjs.Bitmap {
         // Variables
-        private speedY:number = 0.5;
+        private speedY:number = 2;
         // Constructor
         constructor(assetManager:createjs.LoadQueue)
         {
