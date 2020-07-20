@@ -23,20 +23,38 @@ var scenes;
         }
         Level2Scene.prototype.Start = function () {
             console.log("Play scene start");
-            // Inintialize our variables
-            this.playLabel = new objects.Label("Game Playing", "40px", "Consolas", "#000000", 320, 240, true);
+            // Inintialize our variables         
+            this.healthLabel = new objects.Label("Health: ", "60px", "Consolas", "#FFFFFF", 320, 240, true);
             this.background = new objects.Background(this.assetManager);
             this.player = new objects.Player(this.assetManager);
+            //this.enemy = new objects.Enemy(this.assetManager);
+            this.enemies = new Array();
+            this.enemyNum = 5;
+            for (var i = 0; i < this.enemyNum; i++) {
+                this.enemies[i] = new objects.Enemy(this.assetManager);
+            }
             this.Main();
         };
         Level2Scene.prototype.Update = function () {
+            var _this = this;
             this.background.Update();
             this.player.Update();
+            this.enemies.forEach(function (e) {
+                e.Update();
+                managers.Collision.Check(_this.player, e);
+            });
         };
         Level2Scene.prototype.Main = function () {
+            var _this = this;
+            //adding to the scene
             this.addChild(this.background);
-            this.addChild(this.playLabel);
+            this.background.scaleX = 650;
+            this.background.scaleY = 900;
+            this.addChild(this.healthLabel);
             this.addChild(this.player);
+            this.enemies.forEach(function (e) {
+                _this.addChild(e);
+            });
         };
         return Level2Scene;
     }(objects.Scene));
