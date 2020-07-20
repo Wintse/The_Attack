@@ -37,7 +37,7 @@ var scenes;
         };
         Level1Scene.prototype.Update = function () {
             var _this = this;
-            this.background.Update();
+            //this.background.Update();
             this.player.Update();
             this.enemies.forEach(function (e) {
                 e.Update();

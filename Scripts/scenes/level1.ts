@@ -32,7 +32,7 @@ module scenes {
         }
 
         public Update():void {
-            this.background.Update();
+            //this.background.Update();
             this.player.Update();
             this.enemies.forEach(e => {
                 e.Update();
