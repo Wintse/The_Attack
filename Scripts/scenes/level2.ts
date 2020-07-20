@@ -36,12 +36,6 @@ module scenes {
             
         }
 
-        private nextButtonClick():void {
-            objects.Game.currentScene = config.Scene.GAMEOVER;
-        }
-
-        private backButtonClick():void {
-            objects.Game.currentScene = config.Scene.START;
-        }
+       
     }
 }

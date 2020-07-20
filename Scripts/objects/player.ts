@@ -27,7 +27,12 @@ module objects {
             
         }
         public CheckBound():void {
-            this.x = objects.Game.stage.mouseX;
+            
+            // Left boundary
+            if(this.y <= 300) {
+                this.y = 300;
+            }
+            
         }
     }
 }

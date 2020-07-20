@@ -5,7 +5,9 @@ module scenes {
         
         private background: objects.Background;
         private player:objects.Player;
-
+        private enemy:objects.Enemy;
+        private enemies:objects.Enemy[];
+        private enemyNum:number;
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
             super(assetManager);
@@ -15,11 +17,16 @@ module scenes {
 
         public Start():void {
             console.log("Play scene start");
-            // Inintialize our variables
-            this.playLabel = new objects.Label( "Game Playing", "40px", "Consolas", "#000000", 320, 240, true);
+            // Inintialize our variables         
             
             this.background = new objects.Background(this.assetManager);
             this.player = new objects.Player(this.assetManager);
+            this.enemy = new objects.Enemy(this.assetManager);
+            this.enemies = new Array<objects.Enemy>();
+            this.enemyNum = 5;
+            for(let i = 0; i < this.enemyNum; i++) {
+                this.enemies[i] = new objects.Enemy(this.assetManager);
+            }
 
             this.Main();
         }
@@ -27,6 +34,10 @@ module scenes {
         public Update():void {
             this.background.Update();
             this.player.Update();
+            this.enemies.forEach(e => {
+                e.Update();
+                managers.Collision.Check(this.player, e);
+            })
         }
 
         public Main():void {
@@ -37,15 +48,11 @@ module scenes {
             this.addChild(this.playLabel);
             this.addChild(this.player);
        
-            
+            this.enemies.forEach(e => {
+                this.addChild(e);
+            })
         }
 
-        private nextButtonClick():void {
-            objects.Game.currentScene = config.Scene.GAMEOVER;
-        }
-
-        private backButtonClick():void {
-            objects.Game.currentScene = config.Scene.START;
-        }
+        
     }
 }

@@ -38,12 +38,6 @@ var scenes;
             this.addChild(this.playLabel);
             this.addChild(this.player);
         };
-        Level2Scene.prototype.nextButtonClick = function () {
-            objects.Game.currentScene = config.Scene.GAMEOVER;
-        };
-        Level2Scene.prototype.backButtonClick = function () {
-            objects.Game.currentScene = config.Scene.START;
-        };
         return Level2Scene;
     }(objects.Scene));
     scenes.Level2Scene = Level2Scene;

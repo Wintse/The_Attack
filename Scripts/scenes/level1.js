@@ -23,28 +23,36 @@ var scenes;
         }
         Level1Scene.prototype.Start = function () {
             console.log("Play scene start");
-            // Inintialize our variables
-            this.playLabel = new objects.Label("Game Playing", "40px", "Consolas", "#000000", 320, 240, true);
+            // Inintialize our variables         
             this.background = new objects.Background(this.assetManager);
             this.player = new objects.Player(this.assetManager);
+            this.enemy = new objects.Enemy(this.assetManager);
+            this.enemies = new Array();
+            this.enemyNum = 5;
+            for (var i = 0; i < this.enemyNum; i++) {
+                this.enemies[i] = new objects.Enemy(this.assetManager);
+            }
             this.Main();
         };
         Level1Scene.prototype.Update = function () {
+            var _this = this;
             this.background.Update();
             this.player.Update();
+            this.enemies.forEach(function (e) {
+                e.Update();
+                managers.Collision.Check(_this.player, e);
+            });
         };
         Level1Scene.prototype.Main = function () {
+            var _this = this;
             this.addChild(this.background);
             this.background.scaleX = 650;
             this.background.scaleY = 900;
             this.addChild(this.playLabel);
             this.addChild(this.player);
-        };
-        Level1Scene.prototype.nextButtonClick = function () {
-            objects.Game.currentScene = config.Scene.GAMEOVER;
-        };
-        Level1Scene.prototype.backButtonClick = function () {
-            objects.Game.currentScene = config.Scene.START;
+            this.enemies.forEach(function (e) {
+                _this.addChild(e);
+            });
         };
         return Level1Scene;
     }(objects.Scene));

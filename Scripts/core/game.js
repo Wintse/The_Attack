@@ -8,11 +8,9 @@
     var currentState;
     assetManifest = [
         { id: "startButton", src: "./Assets/StartButton.png" },
-        //{id:"nextButton", src:"./Assets/NextButton.png"},
-        //{id:"backButton", src:"./Assets/BackButton.png"},
         { id: "background", src: "./Assets/background.png" },
         { id: "player", src: "./Assets/player.png" },
-        { id: "enemy1", src: "./Assets/enemy1.png" }
+        { id: "enemy", src: "./Assets/enemy1.png" }
     ];
     function Init() {
         console.log("start inital");

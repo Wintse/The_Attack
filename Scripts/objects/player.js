@@ -40,7 +40,10 @@ var objects;
             // This will eventually be replaced with keyboard input
         };
         Player.prototype.CheckBound = function () {
-            this.x = objects.Game.stage.mouseX;
+            // Left boundary
+            if (this.y <= 300) {
+                this.y = 300;
+            }
         };
         return Player;
     }(objects.GameObject));
