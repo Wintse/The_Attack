@@ -22,9 +22,9 @@ module scenes {
             this.startButton = new objects.Button(this.assetManager, "startButton", 250, 500);
 
             // Instantiate Sound
-            this.backgroundMusic = createjs.Sound.play("start_music");
+            /* this.backgroundMusic = createjs.Sound.play("start_music");
             this.backgroundMusic.loop = -1;
-            this.backgroundMusic.volume = 0.;
+            this.backgroundMusic.volume = 0.; */
 
             this.Main();
         }

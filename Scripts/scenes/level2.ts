@@ -37,11 +37,11 @@ module scenes {
             this.scoreBoard.y = 20;
 
             //music
-            createjs.Sound.stop();
+            /* createjs.Sound.stop();
             this.backgroundMusic = createjs.Sound.play("level1_music");
             this.backgroundMusic.loop = -1; // Loop infinitely
             this.backgroundMusic.volume = 0.5;
-            this.Main();
+            this.Main(); */
         }
 
         public Update():void {
