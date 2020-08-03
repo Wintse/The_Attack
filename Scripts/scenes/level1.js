@@ -24,7 +24,6 @@ var scenes;
         Level1Scene.prototype.Start = function () {
             console.log("Play scene start");
             // Inintialize our variables         
-            this.healthLabel = new objects.Label("Health: ", "30px", "Consolas", "#000000", 100, 100, true);
             this.background = new objects.Background(this.assetManager);
             this.player = new objects.Player(this.assetManager);
             //this.enemy = new objects.Enemy(this.assetManager);
@@ -52,6 +51,7 @@ var scenes;
                 e.Update();
                 managers.Collision.Check(_this.player, e);
             });
+            this.scoreBoard;
         };
         Level1Scene.prototype.Main = function () {
             var _this = this;
@@ -59,7 +59,6 @@ var scenes;
             this.addChild(this.background);
             this.background.scaleX = 650;
             this.background.scaleY = 900;
-            this.addChild(this.healthLabel);
             this.addChild(this.player);
             this.enemies.forEach(function (e) {
                 _this.addChild(e);

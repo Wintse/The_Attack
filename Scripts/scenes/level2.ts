@@ -1,8 +1,6 @@
 module scenes {
     export class Level2Scene extends objects.Scene {
         // Variables
-        private health: objects.Label;
-        private healthLabel: objects.Label;
         private background: objects.Background;
         private player:objects.Player;
         //private enemy:objects.Enemy;
@@ -23,7 +21,7 @@ module scenes {
         public Start():void {
             console.log("Play scene start");
             // Inintialize our variables         
-            this.healthLabel = new objects.Label("Health: ", "60px", "Consolas", "#FFFFFF", 320, 240, true);
+            
             this.background = new objects.Background(this.assetManager);
             this.player = new objects.Player(this.assetManager);
             //this.enemy = new objects.Enemy(this.assetManager);
@@ -61,7 +59,6 @@ module scenes {
             this.background.scaleX = 650;
             this.background.scaleY = 900;
 
-            this.addChild(this.healthLabel);
             this.addChild(this.player);
        
             this.enemies.forEach(e => {

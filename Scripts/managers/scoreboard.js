@@ -37,10 +37,6 @@ var managers;
             get: function () {
                 return this.health;
             },
-            enumerable: false,
-            configurable: true
-        });
-        Object.defineProperty(Scoreboard.prototype, "Heath", {
             set: function (newHealth) {
                 this.health = newHealth;
                 this.healthLabel.text = "Health: " + this.health;
@@ -52,7 +48,7 @@ var managers;
         Scoreboard.prototype.Init = function () {
             // Create our labels
             this.scoreLabel = new objects.Label("Score: 999999", "20px", "Consolas", "#FFFF00", 0, 0, false);
-            this.healthLabel = new objects.Label("High score: 0", "20px", "Consolas", "#FFFF00", 460, 0, false);
+            this.healthLabel = new objects.Label("Health: 0", "20px", "Consolas", "#FFFF00", 460, 0, false);
             // Set a default score
             this.score = 0;
             this.health = 100;

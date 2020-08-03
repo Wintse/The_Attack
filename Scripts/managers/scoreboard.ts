@@ -2,11 +2,9 @@ module managers {
     export class Scoreboard extends createjs.Container {
         // Variables
         public scoreLabel: objects.Label;
-        public highScoreLabel: objects.Label;
         public healthLabel: objects.Label;
 
         private score: number;
-        private highScore: number;
         private health: number;
 
         get Score():number {
@@ -22,7 +20,7 @@ module managers {
         get Health():number {
             return this.health;
         }
-        set Heath(newHealth:number) {
+        set Health(newHealth:number) {
             this.health = newHealth;
             this.healthLabel.text = "Health: " + this.health;
         }
@@ -36,7 +34,7 @@ module managers {
         private Init():void {
             // Create our labels
             this.scoreLabel = new objects.Label("Score: 999999", "20px", "Consolas", "#FFFF00", 0, 0, false);
-            this.healthLabel = new objects.Label("High score: 0", "20px", "Consolas", "#FFFF00", 460, 0, false);
+            this.healthLabel = new objects.Label("Health: 0", "20px", "Consolas", "#FFFF00", 460, 0, false);
 
             // Set a default score
             this.score = 0;

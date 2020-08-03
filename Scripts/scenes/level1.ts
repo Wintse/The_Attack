@@ -1,8 +1,6 @@
 module scenes {
     export class Level1Scene extends objects.Scene {
         // Variables
-        private health: objects.Label;
-        private healthLabel: objects.Label;
         private background: objects.Background;
         private player:objects.Player;
         //private enemy:objects.Enemy;
@@ -10,6 +8,7 @@ module scenes {
         private enemyNum:number;
 
         private scoreBoard:managers.Scoreboard; //scoreboard
+        
         private backgroundMusic:createjs.AbstractSoundInstance; //music
 
         // Constructor
@@ -22,7 +21,6 @@ module scenes {
         public Start():void {
             console.log("Play scene start");
             // Inintialize our variables         
-            this.healthLabel = new objects.Label("Health: ", "30px", "Consolas", "#000000", 100, 100, true);
             this.background = new objects.Background(this.assetManager);
             this.player = new objects.Player(this.assetManager);
             //this.enemy = new objects.Enemy(this.assetManager);
@@ -36,6 +34,7 @@ module scenes {
             this.scoreBoard = new managers.Scoreboard();
             this.scoreBoard.x = 20;
             this.scoreBoard.y = 20;
+            
 
             //music
             createjs.Sound.stop();
@@ -53,6 +52,8 @@ module scenes {
                 e.Update();
                 managers.Collision.Check(this.player, e);
             })
+
+            this.scoreBoard
         }
 
         public Main():void {
@@ -61,7 +62,6 @@ module scenes {
             this.background.scaleX = 650;
             this.background.scaleY = 900;
 
-            this.addChild(this.healthLabel);
             this.addChild(this.player);
        
             this.enemies.forEach(e => {
@@ -69,7 +69,6 @@ module scenes {
             });
 
             this.addChild(this.scoreBoard);
-
 
         }
 
