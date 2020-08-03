@@ -8,6 +8,10 @@ module scenes {
         //private enemy:objects.Enemy;
         private enemies:objects.Enemy[];
         private enemyNum:number;
+
+        private scoreBoard:managers.Scoreboard; //scoreboard
+        private backgroundMusic:createjs.AbstractSoundInstance; //music
+
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
             super(assetManager);
@@ -27,6 +31,17 @@ module scenes {
             for(let i = 0; i < this.enemyNum; i++) {
                 this.enemies[i] = new objects.Enemy(this.assetManager);
             }
+
+            //scoreboard
+            this.scoreBoard = new managers.Scoreboard();
+            this.scoreBoard.x = 20;
+            this.scoreBoard.y = 20;
+
+            //music
+            createjs.Sound.stop();
+            this.backgroundMusic = createjs.Sound.play("level1_music");
+            this.backgroundMusic.loop = -1; // Loop infinitely
+            this.backgroundMusic.volume = 0.5;
 
             this.Main();
         }
@@ -51,7 +66,11 @@ module scenes {
        
             this.enemies.forEach(e => {
                 this.addChild(e);
-            })
+            });
+
+            this.addChild(this.scoreBoard);
+
+
         }
 
         

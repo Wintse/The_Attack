@@ -33,6 +33,15 @@ var scenes;
             for (var i = 0; i < this.enemyNum; i++) {
                 this.enemies[i] = new objects.Enemy(this.assetManager);
             }
+            //scoreboard
+            this.scoreBoard = new managers.Scoreboard();
+            this.scoreBoard.x = 20;
+            this.scoreBoard.y = 20;
+            //music
+            createjs.Sound.stop();
+            this.backgroundMusic = createjs.Sound.play("level1_music");
+            this.backgroundMusic.loop = -1; // Loop infinitely
+            this.backgroundMusic.volume = 0.5;
             this.Main();
         };
         Level2Scene.prototype.Update = function () {
