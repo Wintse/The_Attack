@@ -15,8 +15,10 @@
     assetManifest = [
         {id:"startButton", src:"./Assets/StartButton.png"},
         {id:"background", src:"./Assets/background.png"},
+        {id:"start_background", src:"./Assets/StartBackground.png"},
         {id:"player", src:"./Assets/player.png"},
         {id:"enemy", src:"./Assets/enemy1.png"},
+        {id:"enemy2", src:"./Assets/enemy2.png"},
         {id:"explosion", src:"./Assets/Audio/explode.ogg"},
         {id:"start_music", src:"./Assets/Audio/Title_Screen.mp3"},
         {id:"level1_music", src:"./Assets/Audio/Level1.mp3"},

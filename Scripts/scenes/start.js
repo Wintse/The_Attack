@@ -31,7 +31,7 @@ var scenes;
             // Instantiate Sound
             this.backgroundMusic = createjs.Sound.play("start_music");
             this.backgroundMusic.loop = -1;
-            this.backgroundMusic.volume = 0.2;
+            this.backgroundMusic.volume = 0.;
             this.Main();
         };
         StartScene.prototype.Update = function () {

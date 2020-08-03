@@ -57,9 +57,11 @@ var scenes;
             var _this = this;
             //adding to the scene
             this.addChild(this.background);
-            this.background.scaleX = 650;
-            this.background.scaleY = 900;
+            this.background.scaleX = 1.3;
+            this.background.scaleY = 1.1;
             this.addChild(this.player);
+            this.player.scaleX = 1;
+            this.player.scaleY = 1;
             this.enemies.forEach(function (e) {
                 _this.addChild(e);
             });
