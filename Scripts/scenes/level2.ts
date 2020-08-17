@@ -5,7 +5,10 @@ module scenes {
         private player:objects.Player;
         //private enemy:objects.Enemy;
         private enemies:objects.Enemy[];
+        private enemies2:objects.Enemy2[];
+
         private enemyNum:number;
+        private enemyNum2:number;
 
         private scoreBoard:managers.Scoreboard; //scoreboard
         private backgroundMusic:createjs.AbstractSoundInstance; //music
@@ -26,9 +29,16 @@ module scenes {
             this.player = new objects.Player(this.assetManager);
             //this.enemy = new objects.Enemy(this.assetManager);
             this.enemies = new Array<objects.Enemy>();
+            this.enemies2 = new Array<objects.Enemy2>();
             this.enemyNum = 5;
+
             for(let i = 0; i < this.enemyNum; i++) {
                 this.enemies[i] = new objects.Enemy(this.assetManager);
+            }
+
+            this.enemyNum2 = 5;
+            for(let i = 0; i < this.enemyNum; i++) {
+                this.enemies2[i] = new objects.Enemy2(this.assetManager);
             }
             
             //scoreboard
@@ -51,6 +61,10 @@ module scenes {
                 e.Update();
                 managers.Collision.Check(this.player, e);
             })
+            this.enemies2.forEach(e => {
+                e.Update();
+                managers.Collision.Check(this.player, e);
+            })
         }
 
         public Main():void {
@@ -62,6 +76,10 @@ module scenes {
             this.addChild(this.player);
        
             this.enemies.forEach(e => {
+                this.addChild(e);
+            })
+
+            this.enemies2.forEach(e => {
                 this.addChild(e);
             })
         }

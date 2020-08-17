@@ -28,9 +28,14 @@ var scenes;
             this.player = new objects.Player(this.assetManager);
             //this.enemy = new objects.Enemy(this.assetManager);
             this.enemies = new Array();
+            this.enemies2 = new Array();
             this.enemyNum = 5;
             for (var i = 0; i < this.enemyNum; i++) {
                 this.enemies[i] = new objects.Enemy(this.assetManager);
+            }
+            this.enemyNum2 = 5;
+            for (var i = 0; i < this.enemyNum; i++) {
+                this.enemies2[i] = new objects.Enemy2(this.assetManager);
             }
             //scoreboard
             this.scoreBoard = new managers.Scoreboard();
@@ -51,6 +56,10 @@ var scenes;
                 e.Update();
                 managers.Collision.Check(_this.player, e);
             });
+            this.enemies2.forEach(function (e) {
+                e.Update();
+                managers.Collision.Check(_this.player, e);
+            });
         };
         Level2Scene.prototype.Main = function () {
             var _this = this;
@@ -60,6 +69,9 @@ var scenes;
             this.background.scaleY = 900;
             this.addChild(this.player);
             this.enemies.forEach(function (e) {
+                _this.addChild(e);
+            });
+            this.enemies2.forEach(function (e) {
                 _this.addChild(e);
             });
         };

@@ -19,10 +19,12 @@
         {id:"player", src:"./Assets/player.png"},
         {id:"enemy", src:"./Assets/enemy1.png"},
         {id:"enemy2", src:"./Assets/enemy2.png"},
+        {id:"laser", src:"./Assets/laser.png"},
         {id:"explosion", src:"./Assets/Audio/explode.ogg"},
         {id:"start_music", src:"./Assets/Audio/Title_Screen.mp3"},
         {id:"level1_music", src:"./Assets/Audio/Level1.mp3"},
         {id:"level2_music", src:"./Assets/Audio/Level2.mp3"}
+        
     ];
 
     function Init() {
@@ -97,6 +99,7 @@
         }
 
         currentState = objects.Game.currentScene;
+        managers.Game.currentSceneObject = currentScene;
     }
 
     window.onload = Init;

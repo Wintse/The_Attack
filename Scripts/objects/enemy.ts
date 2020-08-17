@@ -19,7 +19,7 @@ module objects {
             this.y = Math.floor(Math.random() * -800) - 50;
         }
         public Move():void {
-            this.y += 5;
+            this.y += 3;
         }
         public CheckBound():void {
             if(this.y >= 900 + this.halfH + 25) {

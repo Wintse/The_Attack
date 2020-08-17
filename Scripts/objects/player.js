@@ -15,22 +15,28 @@ var objects;
 (function (objects) {
     var Player = /** @class */ (function (_super) {
         __extends(Player, _super);
-        // Variables
         // Constructor
         function Player(assetManager) {
             var _this = _super.call(this, assetManager, "player") || this;
+            _this.laserNum = 0;
             _this.Start();
             return _this;
         }
         Player.prototype.Start = function () {
             this.x = 320;
             this.y = 700;
+            this.isDead = false;
+            this.Lasers = new Array();
             this.scaleX = 0.25;
             this.scaleY = 0.25;
         };
         Player.prototype.Update = function () {
             this.Move();
             this.CheckBound();
+            this.LaserFire();
+            this.Lasers.forEach(function (laser) {
+                laser.Update();
+            });
         };
         Player.prototype.Reset = function () { };
         Player.prototype.Move = function () {
@@ -67,6 +73,21 @@ var objects;
             if (this.x >= 580) {
                 this.x = 580;
             }
+        };
+        Player.prototype.LaserFire = function () {
+            /*    let ticker:number = createjs.Ticker.getTicks();
+   
+               if(!this.isDead && managers.Game.keyboardManager.shoot && (ticker % 10 == 0))
+               {
+                   this.laserSpawn = new math.Vec2(this.x, this.y - this.halfH);
+                   let laser = new objects.Laser(this.assetManager);
+                   laser.x = this.laserSpawn.x;
+                   laser.y = this.laserSpawn.y;
+                   this.Lasers[this.laserNum] = laser;
+                   managers.Game.currentSceneObject.addChild(laser);
+                   this.laserNum++;
+               }
+           */
         };
         return Player;
     }(objects.GameObject));
